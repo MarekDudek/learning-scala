@@ -1,7 +1,7 @@
 
 package tutorial
 
-object NewTypes {
+object GrowingNewTypes {
 
   def factorial(x: BigInt): BigInt =
     if (x == 0) 1
