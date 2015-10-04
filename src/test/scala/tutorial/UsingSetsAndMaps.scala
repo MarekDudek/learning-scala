@@ -1,31 +1,34 @@
 package tutorial
 
-import org.scalatest.FlatSpec
-import org.scalatest.Matchers
+import org.scalatest.{ FlatSpec, Matchers }
+import scala.collection.{ immutable, mutable }
 
 class UsingSetsAndMaps extends FlatSpec with Matchers {
 
-  "Using sets" should "be easy" in {
+  "It" should "be easy to use sets" in {
 
-    var jetSet = Set("Boeing", "Airbus")
+    var jetSet = immutable.Set("Boeing", "Airbus")
     jetSet += "Lear"
 
     jetSet should not contain "Cessna"
   }
 
-  "Using mutable sets" should "be easy" in {
+  it should "be easy to use mutable sets" in {
 
-    import scala.collection.mutable.Set
-
-    val jetSet = Set("Boeing", "Airbus")
+    val jetSet = mutable.Set("Boeing", "Airbus")
     jetSet += "Lear"
 
     jetSet should not contain "Cessna"
   }
 
-  "Using maps" should "be easy" in {
+  it should "be easy to use maps" in {
 
-    val romanNumeral = Map(1 -> "I", 2 -> "II", 3 -> "III", 4 -> "IV", 5 -> "V")
+    val romanNumeral = immutable.Map(
+      1 -> "I",
+      2 -> "II",
+      3 -> "III",
+      4 -> "IV",
+      5 -> "V")
 
     romanNumeral should contain(2 -> "II")
     romanNumeral should have size 5
@@ -33,11 +36,9 @@ class UsingSetsAndMaps extends FlatSpec with Matchers {
     romanNumeral should contain value "V"
   }
 
-  "Using mutable maps" should "be easy" in {
+  it should "be easy to use mutable maps" in {
 
-    import scala.collection.mutable.Map
-
-    val treasureMap = Map[Int, String]()
+    val treasureMap = mutable.Map[Int, String]()
     treasureMap += (1 -> "Go to island")
     treasureMap += (2 -> "Find big X on ground")
     treasureMap += (3 -> "Dig")

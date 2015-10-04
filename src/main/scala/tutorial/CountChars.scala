@@ -7,7 +7,7 @@ import language.postfixOps
 
 object CountChars extends App {
 
-  def widthOfLength(line: String) =
+  def widthOfLength(line: String): Int =
     line.length.toString.length
 
   if (args isEmpty) {
@@ -18,9 +18,9 @@ object CountChars extends App {
   val source = Source fromFile args(0)
   val lines = source.getLines.toList
 
-  val maxWidth = lines map(widthOfLength) reduceLeft(max)
+  val maxWidth = lines map (widthOfLength) reduceLeft (max)
 
-  for (line <- lines) {
+  for { line <- lines } {
     val padding = " " * (maxWidth - widthOfLength(line))
     println(padding + line.length + " | " + line)
   }

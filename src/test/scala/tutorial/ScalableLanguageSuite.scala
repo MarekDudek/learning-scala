@@ -5,9 +5,11 @@ import org.scalatest.Matchers
 
 class ScalableLanguageSuite extends FlatSpec with Matchers {
 
+  val twentyThree = 23
+
   "By default fields" should "be private" in {
 
-    val instance = new FieldsArePrivate(23, "my name")
+    val instance = new FieldsArePrivate(twentyThree, "my name")
 
     assertCompiles("instance.toString")
 
@@ -31,22 +33,22 @@ class ScalableLanguageSuite extends FlatSpec with Matchers {
   "Iteration over numbers" should "be easy" in {
 
     var toThree = 0
-    for (i <- 1 to 3)
+    for { i <- 1 to 3 }
       toThree += i
     toThree shouldBe 6
 
     var untilThree = 0
-    for (i <- 1 until 3)
+    for { i <- 1 until 3 }
       untilThree += i
     untilThree shouldBe 3
 
     var toWithStep = 0
-    for (i <- 1 to 9 by 2)
+    for { i <- 1 to 9 by 2 }
       toWithStep += i
     toWithStep shouldBe 25
 
     var untilWithStep = 0
-    for (i <- 1 to 9 by 3)
+    for { i <- 1 to 9 by 3 }
       untilWithStep += i
     untilWithStep shouldBe 12
   }
@@ -62,13 +64,13 @@ class ScalableLanguageSuite extends FlatSpec with Matchers {
   "Access with parentheses" should "be easy to implement" in {
 
     object Some {
-      def apply(name: String) =
+      def apply(name: String): Int =
         name.length
-      def update(index: Int, value: Boolean) =
+      def update(index: Int, value: Boolean): Int =
         index + (if (value) 1 else 0)
     }
 
     Some("name") shouldBe 4
-    (Some(23) = true) shouldBe 24
+    (Some(twentyThree) = true) shouldBe 24
   }
 }

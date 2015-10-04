@@ -1,5 +1,5 @@
 
-import org.scalatest._
+import org.scalatest.{ FlatSpec, Matchers }
 
 class ExampleTest extends FlatSpec with Matchers {
 
