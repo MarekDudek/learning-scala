@@ -22,4 +22,18 @@ class DefiningFunctionsSuite extends FlatSpec {
       assertCompiles("greet")
       assertDoesNotCompile("greet()")
     }
+
+  "Function" should "be easy to define" in {
+
+    val f1 = (str: String) => println(str)
+    def f2 = (x: Int, y: Int) => x + y
+    val f3: Function[Int, Int] = x => x + 1
+  }
+
+  "Calling function" should "not require parentheses" in {
+
+    Nil.foreach(println)
+    Nil.foreach { println }
+    Nil foreach println
+  }
 }
