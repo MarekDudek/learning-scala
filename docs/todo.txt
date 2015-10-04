@@ -1,0 +1,2 @@
+
+Scala macros, like assertCompiles and assertDoesNotCompile in ScalaTest
