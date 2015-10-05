@@ -49,14 +49,14 @@ class BasicTypesAndOperations extends FlatSpec with Matchers {
   case class SomeClass(val value: Double) {
 
     // scalastyle:off
-    
+
     def unary_- = SomeClass(-value)
     def unary_+ = SomeClass(value * 2)
     def unary_! = SomeClass(1.0 / value)
     def unary_~ = !(-this)
 
     def * = SomeClass(value * value)
-    
+
     // scalastyle:on
   }
 
@@ -87,7 +87,7 @@ class BasicTypesAndOperations extends FlatSpec with Matchers {
     null == list shouldBe false
 
     assertCompiles("null == null shouldBe true")
-    
+
     // scalastyle:on
 
     "he" + "llo" == "hello" shouldBe true
